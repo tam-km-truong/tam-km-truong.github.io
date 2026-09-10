@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tam Truong | PhD Researcher in Bioinformatics &amp; Algorithms</title>
+  <meta name="description" content="Tam Truong — PhD at GenScale (IRISA / Inria), Software Engineer &amp; Builder." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    
+    <!-- Permanent Non-Moveable Hero: Intro & Bio -->
+    <header class="hero-intro-card">
+      <div class="intro-header-row">
+        <div class="profile-header">
+          <h1 class="name">Tam Truong </h1>
+          <p class="subtitle">PhD Candidate in Bioinformatics &amp; Algorithms &middot; GenScale Team, IRISA / Inria</p>
+        </div>
+        <div class="header-controls">
+          <button id="theme-toggle" class="tool-btn icon-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle dark/light theme">
+            <span class="theme-icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="bio-text">
+        <p>
+          I am a doctoral researcher in the <strong>GenScale team at IRISA / Inria</strong> (Rennes, France), advised by <strong>Karel Břinda</strong>, <strong>Dominique Lavenier</strong>, and <strong>Pierre Peterlongo</strong>. My research focuses on scalable algorithms and storage for million-genome bacterial collections—leveraging evolutionary relationships to reorder genomes, reduce entropy, and enable efficient compression, indexing, and random access.
+        </p>
+        <p>
+          During my MSc, I worked on discrete optimization for long-read metagenomic strain separation. I develop core reordering algorithms in Python, integrate with C++ codebases, and orchestrate reproducible pipelines using Snakemake.
+        </p>
+      </div>
+
+      <div class="profile-status">
+        <span class="status-dot" aria-hidden="true" title="Latest News"></span>
+        <div class="news-list">
+          <div class="news-item">
+            09 2026: Poster presented at ECCB 2026
+            <a href="https://drive.google.com/file/d/1hpwiwajSyAE9QpN5vqCHoj3juWgDgHYq/view" target="_blank" rel="noopener noreferrer">[Poster]</a>
+          </div> 
+          <div class="news-item">05 2026: Poster presented at RECOMB 2026</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section Quick-Jump & Rearrange Toolbar -->
+    <div class="inventory-toolbar">
+      <div class="section-chips">
+        <button class="section-chip" data-target="card-research" type="button" title="Move Research to top">
+          Research
+        </button>
+        <button class="section-chip" data-target="card-projects" type="button" title="Move Software to top">
+          Software
+        </button>
+        <button class="section-chip" data-target="card-jobs" type="button" title="Move Experience to top">
+          Experience
+        </button>
+        <button class="section-chip" data-target="card-experience" type="button" title="Move Education to top">
+          Education
+        </button>
+        <button class="section-chip" data-target="card-achievements" type="button" title="Move Achievements to top">
+          Achievements
+        </button>
+        <button class="section-chip" data-target="card-contact" type="button" title="Move Contact to top">
+          Contact
+        </button>
+        <button class="section-chip" data-target="card-discussions" type="button" title="Move Messages to top">
+          Messages
+        </button>
+        <button class="section-chip" data-target="card-extra" type="button" title="Open More sections">
+          More
+        </button>
+      </div>
+      <button id="reset-inventory-btn" class="tool-btn" type="button" title="Reset cards to default layout">
+        Reset
+      </button>
+    </div>
+
+    <!-- 2-Column Moveable Card Grid -->
+    <div class="layout-grid">
+      
+      <!-- Primary Big Column (Left: Research, Software & Conferences) -->
+      <div class="inventory-column" data-column-id="col-main">
+        
+        <!-- Research & Publications Card -->
+        <section id="card-research" class="inventory-item" data-item-id="card-research">
+          <div class="card-header-bar">
+            <h2>Publications</h2>
+            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
+          </div>
+
+          <ul class="entry-list">
+            <li>
+              <div class="entry-title">
+                <strong>SNooPy: a statistical framework for long-read metagenomic variant calling</strong>
+                <button class="desc-toggle-btn" type="button" aria-expanded="false" title="Expand description" aria-label="Toggle description">+</button>
+              </div>
+              <div class="entry-meta">
+                Roland Faure, Ulysse Faure, <strong>Tam Truong</strong>, Alessandro Derzelle, Dominique Lavenier, Jean-François Flot, Christopher Quince &middot; <em>Nucleic Acids Research (NAR), 2026</em>
+              </div>
+              <div class="entry-desc is-collapsed">
+                A statistical framework tailored for accurate variant calling in complex metagenomic samples using long-read sequencing technology.
+              </div>
+              <div class="entry-links">
+                <a href="https://doi.org/10.1093/nar/gkag556" target="_blank" rel="noopener noreferrer">[DOI: 10.1093/nar/gkag556]</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="entry-title">
+                <strong>Assembling Close Strains in Metagenome Assemblies Using Discrete Optimization</strong>
+                <button class="desc-toggle-btn" type="button" aria-expanded="false" title="Expand description" aria-label="Toggle description">+</button>
+              </div>
+              <div class="entry-meta">
+                <strong>Tam Truong</strong>, Roland Faure, Rumen Andonov &middot; <em>BIOINFORMATICS (BIOSTEC / SciTePress), 2024</em>
+              </div>
+              <div class="entry-desc is-collapsed">
+                Novel Integer Linear Programming (ILP) formulation and discrete optimization framework to resolve and separate closely related microbial strains. <strong>Awarded Best Student Paper Award</strong> (Rome, Italy).
+              </div>
+              <div class="entry-links">
+                <a href="https://doi.org/10.5220/0012320700003657" target="_blank" rel="noopener noreferrer">[DOI: 10.5220/0012320700003657]</a>
+                <span class="award-pill">🏆 Best Student Paper</span>
+              </div>
+            </li>
+
+            <li>
+              <div class="entry-title">
+                <strong>StrainMiner: Data mining and discrete optimizations for strains separation in metagenomes using long reads</strong>
+                <button class="desc-toggle-btn" type="button" aria-expanded="false" title="Expand description" aria-label="Toggle description">+</button>
+              </div>
+              <div class="entry-meta">
+                <strong>Tam Truong</strong> &middot; <em>MSc Thesis, Aalto University &amp; Rennes University, 2023</em>
+              </div>
+              <div class="entry-desc is-collapsed">
+                Master's thesis proposing data mining heuristics and binary bi-clustering to isolate distinct bacterial strains from noisy metagenomic assemblies.
+              </div>
+              <div class="entry-links">
+                <a href="https://urn.fi/URN:NBN:fi:aalto-202310156354" target="_blank" rel="noopener noreferrer">[Thesis URN]</a>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Projects & Software Card -->
+        <section id="card-projects" class="inventory-item" data-item-id="card-projects">
+          <div class="card-header-bar">
+            <h2>Software &amp; Tools</h2>
+            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
+          </div>
+
+          <ul class="entry-list">
+            <li>
+              <div class="entry-title">
+                <a href="https://github.com/tam-km-truong/PhyloPack" target="_blank" rel="noopener noreferrer"><strong>PhyloPack</strong></a>
+                &mdash; <span class="entry-meta">Genomic Compression &middot; Indexing Protocol</span>
+                <button class="desc-toggle-btn" type="button" aria-expanded="false" title="Expand description" aria-label="Toggle description">+</button>
+              </div>
+              <div class="entry-desc is-collapsed">
+                High-performance ordering and compression protocol designed to efficiently index and query collections containing millions of bacterial genomes.
+              </div>
+              <div class="entry-links">
+                <a href="https://github.com/tam-km-truong/PhyloPack" target="_blank" rel="noopener noreferrer">[Code on GitHub]</a>
+              </div>
+            </li>
+
+            <li>
+              <div class="entry-title">
+                <a href="https://github.com/tmtktmtk/strainMiner" target="_blank" rel="noopener noreferrer"><strong>StrainMiner</strong></a>
+                &mdash; <span class="entry-meta">Python &middot; Pulp &middot; ILP &middot; Data Mining</span>
+                <button class="desc-toggle-btn" type="button" aria-expanded="false" title="Expand description" aria-label="Toggle description">+</button>
+              </div>
+              <div class="entry-desc is-collapsed">
+                Software for separating close strains in metagenomic assemblies combining integer linear programming with data mining algorithms.
+              </div>
+              <div class="entry-links">
+                <a href="https://github.com/tmtktmtk/strainMiner" target="_blank" rel="noopener noreferrer">[Code on GitHub]</a>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Experience Card -->
+        <section id="card-jobs" class="inventory-item" data-item-id="card-jobs">
+          <div class="card-header-bar">
+            <h2>Experience</h2>
+            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
+          </div>
+
+          <ul class="entry-list compact">
+            <li>
+              <span class="year">03 2023 &ndash; 09 2023</span>
+              <div>
+                <div class="entry-title">
+                  <strong>Research Intern</strong>, IRISA / GenScale (Rennes, France)
+                  <button class="desc-toggle-btn" type="button" aria-expanded="false" title="Expand description" aria-label="Toggle description">+</button>
+                </div>
+                <div class="entry-desc is-collapsed">
+                  Conducted research and developed software on data mining and operations research within the GenScale bioinformatics team.
+                </div>
+              </div>
+            </li>
+            <li>
+              <span class="year">03 2021 &ndash; 09 2022</span>
+              <div>
+                <div class="entry-title">
+                  <strong>Full-Stack Developer</strong>, Enedis (Paris, France)
+                  <button class="desc-toggle-btn" type="button" aria-expanded="false" title="Expand description" aria-label="Toggle description">+</button>
+                </div>
+                <div class="entry-desc is-collapsed">
+                  Developed an internal task and contract management web app using PHP, JavaScript, and MySQL under Agile workflows.
+                </div>
+              </div>
+            </li>
+            <li>
+              <span class="year">05 2022 &ndash; 08 2022</span>
+              <div>
+                <div class="entry-title">
+                  <strong>Research Intern</strong>, IRISA / GenScale (Rennes, France)
+                  <button class="desc-toggle-btn" type="button" aria-expanded="false" title="Expand description" aria-label="Toggle description">+</button>
+                </div>
+                <div class="entry-desc is-collapsed">
+                  Investigated binary bi-clustering algorithms for genomic data using Integer Linear Programming (ILP) with Python and PuLP.
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Achievements & Honors Card -->
+        <section id="card-achievements" class="inventory-item" data-item-id="card-achievements">
+          <div class="card-header-bar">
+            <h2>Achievements</h2>
+            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
+          </div>
+
+          <ul class="entry-list compact">
+            <li>
+              <span class="year">2026</span>
+              <div>
+                <strong>SFBI Travel Grant</strong> &mdash; French Society of Bioinformatics grant for ECCB
+              </div>
+            </li>
+            <li>
+              <span class="year">2024</span>
+              <div>
+                <strong>Best Student Paper Award</strong> &mdash; BIOINFORMATICS / INSTICC, Rome
+              </div>
+            </li>
+            <li>
+              <span class="year">2023</span>
+              <div>
+                <strong>MSc with Highest Honors</strong> &mdash; EIT Digital Master School
+              </div>
+            </li>
+            <li>
+              <span class="year">2021</span>
+              <div>
+                <strong>Full Merit Scholarship</strong> &mdash; EIT Digital Master Program
+              </div>
+            </li>
+            <li>
+              <span class="year">2020</span>
+              <div>
+                <strong>BSc with High Honors</strong> &mdash; Rennes University
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Extra Sections Card: Click [+] to reveal [skills] [conferences and talks] [hobbies] -->
+        <section id="card-extra" class="inventory-item collapsible-card is-collapsed" data-item-id="card-extra">
+          <!-- Collapsed Box with [+] Symbol -->
+          <div class="extra-collapsed-box" id="extra-trigger-box" role="button" tabindex="0" aria-expanded="false" title="Click to view Skills, Conferences & Talks, Hobbies">
+            <div class="plus-box-icon" aria-hidden="true">+</div>
+            <div class="plus-box-info">
+              <div class="plus-box-badges">
+                <span class="mini-chip">[skills]</span>
+                <span class="mini-chip">[conferences and talks]</span>
+                <span class="mini-chip">[hobbies]</span>
+              </div>
+            </div>
+            <span class="drag-handle collapsed-drag-handle" title="Drag to move card">⋮⋮</span>
+          </div>
+
+          <!-- Expanded Header Bar -->
+          <div class="card-header-bar extra-header-bar">
+            <h2>Extra</h2>
+            <div class="card-controls">
+              <button id="toggle-extra-btn" class="expand-btn" type="button" aria-expanded="false" title="Collapse extra section">
+                <span class="expand-icon">−</span>
+              </button>
+              <span class="drag-handle" title="Drag to move card">⋮⋮</span>
+            </div>
+          </div>
+
+          <!-- Expanded Content: Sub-boxes with Filter Bar -->
+          <div class="collapsible-content">
+            <!-- Filter Pills -->
+            <div class="extra-filter-bar">
+              <button class="extra-filter-btn is-active" data-filter="all" type="button">All</button>
+              <button class="extra-filter-btn" data-filter="skills" type="button">Skills</button>
+              <button class="extra-filter-btn" data-filter="conferences" type="button">Conferences &amp; Talks</button>
+              <button class="extra-filter-btn" data-filter="hobbies" type="button">Hobbies</button>
+            </div>
+
+            <!-- Box 1: Skills & Tools -->
+            <div class="extra-sub-box" data-extra-tab="skills">
+              <div class="extra-sub-box-header">
+                <h3>Skills &amp; Languages</h3>
+              </div>
+              <div class="sub-box-content">
+                <div class="extra-skill-row">
+                  <span class="skill-label">Programming:</span>
+                  <span class="skill-value">Python, C/C++, PHP, JavaScript, SQL, Java, Scala</span>
+                </div>
+                <div class="extra-skill-row">
+                  <span class="skill-label">Optimization:</span>
+                  <span class="skill-value">GUROBI Solver, Pulp, Operations Research, ILP</span>
+                </div>
+                <div class="extra-skill-row">
+                  <span class="skill-label">Developer Tools:</span>
+                  <span class="skill-value">Git, Linux, Docker, LaTeX, Tableau, JIRA, Figma</span>
+                </div>
+                <div class="extra-skill-row">
+                  <span class="skill-label">Languages:</span>
+                  <span class="skill-value">English (Fluent), French (Fluent), Vietnamese (Native)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Box 2: Conferences, Posters & Talks -->
+            <div class="extra-sub-box" data-extra-tab="conferences">
+              <div class="extra-sub-box-header">
+                <h3>Conferences &amp; Talks</h3>
+              </div>
+              <ul class="entry-list compact">
+                <li>
+                  <div class="entry-title"><strong>ECCB 2026</strong> &mdash; European Conference on Computational Biology</div>
+                  <div class="entry-meta">Sep 2026 &middot; Geneva, Switzerland &middot; <em>Poster presentation</em></div>
+                </li>
+                <li>
+                  <div class="entry-title"><strong>RECOMB 2026</strong> &mdash; Research in Computational Molecular Biology</div>
+                  <div class="entry-meta">May 2026 &middot; Thessaloniki, Greece &middot; <em>Poster presentation</em></div>
+                </li>
+                <li>
+                  <div class="entry-title"><strong>DSB 2026</strong> &mdash; Data Structures in Bioinformatics</div>
+                  <div class="entry-meta">Feb 2026 &middot; Venice, Italy &middot; <em>Oral presentation</em></div>
+                </li>
+                <li>
+                  <div class="entry-title"><strong>SeqBIM 2025</strong> &mdash; Séquences en Bioinformatique, Informatique et Mathématiques</div>
+                  <div class="entry-meta">Nov 2025 &middot; Nantes, France &middot; <em>Oral presentation</em></div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Box 3: Hobbies & Interests -->
+            <div class="extra-sub-box" data-extra-tab="hobbies">
+              <div class="extra-sub-box-header">
+                <h3>Hobbies &amp; Interests</h3>
+              </div>
+              <div class="sub-box-content">
+                <div class="extra-skill-row">
+                  <span class="skill-label">Sports:</span>
+                  <span class="skill-value">Playing a lot of football recently, some gym &amp; running</span>
+                </div>
+                <div class="extra-skill-row">
+                  <span class="skill-label">Food:</span>
+                  <span class="skill-value">COFFEE! And all kind of foods, really love cheeses.</span>
+                </div>
+                <div class="extra-skill-row">
+                  <span class="skill-label">Gaming:</span>
+                  <span class="skill-value">Will probably take some vacation to play all my unplayed steam games</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Messages & Discussions Card -->
+        <section id="card-discussions" class="inventory-item" data-item-id="card-discussions">
+          <div class="card-header-bar">
+            <h2>Messages</h2>
+            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
+          </div>
+
+          <p>
+            Leave a comment or start a discussion below.
+          </p>
+
+          <div id="giscus-slot" class="discussion-placeholder">
+            <div class="discussion-placeholder-inner">
+              <p><strong>GitHub Discussions Slot</strong></p>
+              <p class="placeholder-sub">Giscus will be here.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Secondary Smaller Column (Right: Timeline & Contact) -->
+      <div class="inventory-column" data-column-id="col-sidebar">
+        
+        <!-- Education Card -->
+        <section id="card-experience" class="inventory-item" data-item-id="card-experience">
+          <div class="card-header-bar">
+            <h2>Education</h2>
+            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
+          </div>
+
+          <ul class="entry-list compact">
+            <li>
+              <span class="year">2024 &ndash; </span>
+              <div>
+                <strong>PhD in Bioinformatics</strong>, GenScale team, IRISA / Inria
+              </div>
+            </li>
+            <li>
+              <span class="year">2021 &ndash; 2023</span>
+              <div>
+                <strong>MSc in Data Science &amp; Business Intelligence</strong>, EIT Digital (Aalto University &amp; Rennes University) &middot; <em>Highest Honors</em>
+              </div>
+            </li>
+            <li>
+              <span class="year">2018 &ndash; 2021</span>
+              <div>
+                <strong>BSc in Computer Science</strong>, Rennes University &middot; <em>High Honors</em>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Contact Card -->
+        <section id="card-contact" class="inventory-item" data-item-id="card-contact">
+          <div class="card-header-bar">
+            <h2>Get in Touch</h2>
+            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
+          </div>
+
+          <p>
+            Reach me at:
+          </p>
+          <p>
+            <strong>Address:</strong> GenScale Team, IRISA / Inria Centre, Rennes, France<br />
+            <strong>Email:</strong> <a href="mailto:khac-minh-tam.truong@irisa.fr">khac-minh-tam.truong@irisa.fr</a>
+          </p>
+
+          <nav class="links" aria-label="Social and contact links">
+            <a href="mailto:khac-minh-tam.truong@irisa.fr">Email</a>
+            <span>/</span>
+            <a href="https://github.com/tam-km-truong" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span>/</span>
+            <a href="https://www.linkedin.com/in/tmtktmtk" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span>/</span>
+            <a href="Tam_CV_Aca_2026-1.pdf" target="_blank" rel="noopener noreferrer">CV (PDF) ↗</a>
+          </nav>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- Site Footer -->
+    <footer>
+      <span>&copy; 2026 Tam Truong (Minh Tam Truong Khac)</span>
+      <span>Last updated: September 2026</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
