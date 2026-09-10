@@ -6,10 +6,13 @@
   /* Light Theme (Parchment & Steel) */
   --bg-body: #f3f4f6;
   --bg-section: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f9fafb;
   --border: #d1d5db;
   --border-accent: #9ca3af;
   --border-subtle: #f3f4f6;
   --text: #1f2937;
+  --text-heading: #111827;
   --text-muted: #4b5563;
   --text-subtle: #9ca3af;
   --link: #2563eb;
@@ -28,17 +31,20 @@
 }
 
 [data-theme="dark"] {
-  /* Dark Theme */
-  --bg-body: #0a0c10;
-  --bg-section: #12151c;
-  --border: #232834;
-  --border-accent: #434c5e;
-  --border-subtle: #1a1e28;
-  --text: #e2e8f0;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
-  --link: #38bdf8;
-  --link-hover: #7dd3fc;
+  /* Dark Theme (Soft Charcoal & Slate — Less Pitch Black) */
+  --bg-body: #161922;
+  --bg-section: #212631;
+  --bg-card: #212631;
+  --bg-card-hover: #29303d;
+  --border: #333b49;
+  --border-accent: #525e73;
+  --border-subtle: #282f3c;
+  --text: #e6ebf2;
+  --text-heading: #f1f5f9;
+  --text-muted: #9aa5b6;
+  --text-subtle: #6c788c;
+  --link: #60a5fa;
+  --link-hover: #93c5fd;
 
   /* Accent Colors */
   --rarity-legendary: #f59e0b; /* Bright Legendary Orange */
