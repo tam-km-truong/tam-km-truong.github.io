@@ -73,9 +73,20 @@
           More
         </button>
       </div>
-      <button id="reset-inventory-btn" class="tool-btn" type="button" title="Reset cards to default layout">
-        Reset
-      </button>
+      <div class="toolbar-actions">
+        <button id="toggle-drag-btn" class="tool-btn" type="button" title="Enable card dragging (cards currently locked)" aria-label="Toggle card dragging" aria-pressed="false">
+          <svg class="drag-toggle-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </button>
+        <button id="reset-inventory-btn" class="tool-btn" type="button" title="Reset cards to default layout" aria-label="Reset cards to default layout">
+          <svg class="reset-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- 2-Column Moveable Card Grid -->
@@ -88,7 +99,6 @@
         <section id="card-research" class="inventory-item" data-item-id="card-research">
           <div class="card-header-bar">
             <h2>Publications</h2>
-            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
           </div>
 
           <ul class="entry-list">
@@ -147,7 +157,6 @@
         <section id="card-projects" class="inventory-item" data-item-id="card-projects">
           <div class="card-header-bar">
             <h2>Software &amp; Tools</h2>
-            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
           </div>
 
           <ul class="entry-list">
@@ -185,7 +194,6 @@
         <section id="card-jobs" class="inventory-item" data-item-id="card-jobs">
           <div class="card-header-bar">
             <h2>Experience</h2>
-            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
           </div>
 
           <ul class="entry-list compact">
@@ -232,7 +240,6 @@
         <section id="card-achievements" class="inventory-item" data-item-id="card-achievements">
           <div class="card-header-bar">
             <h2>Achievements</h2>
-            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
           </div>
 
           <ul class="entry-list compact">
@@ -281,7 +288,6 @@
                 <span class="mini-chip">[hobbies]</span>
               </div>
             </div>
-            <span class="drag-handle collapsed-drag-handle" title="Drag to move card">⋮⋮</span>
           </div>
 
           <!-- Expanded Header Bar -->
@@ -291,7 +297,6 @@
               <button id="toggle-extra-btn" class="expand-btn" type="button" aria-expanded="false" title="Collapse extra section">
                 <span class="expand-icon">−</span>
               </button>
-              <span class="drag-handle" title="Drag to move card">⋮⋮</span>
             </div>
           </div>
 
@@ -383,7 +388,6 @@
         <section id="card-discussions" class="inventory-item" data-item-id="card-discussions">
           <div class="card-header-bar">
             <h2>Messages</h2>
-            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
           </div>
 
           <p>
@@ -407,7 +411,6 @@
         <section id="card-experience" class="inventory-item" data-item-id="card-experience">
           <div class="card-header-bar">
             <h2>Education</h2>
-            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
           </div>
 
           <ul class="entry-list compact">
@@ -436,7 +439,6 @@
         <section id="card-contact" class="inventory-item" data-item-id="card-contact">
           <div class="card-header-bar">
             <h2>Get in Touch</h2>
-            <span class="drag-handle" title="Drag to move card">⋮⋮</span>
           </div>
 
           <p>

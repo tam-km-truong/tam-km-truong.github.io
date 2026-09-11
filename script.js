@@ -65,8 +65,85 @@
   }
 
   // ------------------------------------------------------------------------
-  // 5. Drag & Drop Inventory System
+  // 5. Drag & Drop Inventory System with Toggle
   // ------------------------------------------------------------------------
+  let isDragEnabled = false;
+  const toggleDragBtn = document.getElementById('toggle-drag-btn');
+
+  const updateDragToggleUI = () => {
+    if (!toggleDragBtn) return;
+    const items = document.querySelectorAll('.inventory-item');
+
+    if (isDragEnabled) {
+      toggleDragBtn.classList.add('is-active');
+      toggleDragBtn.setAttribute('aria-pressed', 'true');
+      toggleDragBtn.setAttribute('title', 'Lock cards in place (cards currently draggable)');
+      toggleDragBtn.innerHTML = `
+        <svg class="drag-toggle-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+        </svg>
+      `;
+      document.body.classList.add('drag-enabled');
+      items.forEach((item) => {
+        item.style.animation = '';
+        item.style.transform = '';
+        item.style.transition = '';
+        item.setAttribute('draggable', 'true');
+      });
+    } else {
+      toggleDragBtn.classList.remove('is-active');
+      toggleDragBtn.setAttribute('aria-pressed', 'false');
+      toggleDragBtn.setAttribute('title', 'Enable card dragging (cards currently locked)');
+      toggleDragBtn.innerHTML = `
+        <svg class="drag-toggle-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+      `;
+
+      // Smoothly unwind/settle cards from their active wobble position
+      items.forEach((item) => {
+        item.setAttribute('draggable', 'false');
+        try {
+          const liveMatrix = window.getComputedStyle(item).transform;
+          item.style.animation = 'none';
+          if (liveMatrix && liveMatrix !== 'none') {
+            item.style.transform = liveMatrix;
+          }
+        } catch (err) {
+          // fallback if computed style unavailable
+        }
+      });
+
+      document.body.classList.remove('drag-enabled');
+      void document.body.offsetWidth; // Commit instantaneous positions
+
+      requestAnimationFrame(() => {
+        items.forEach((item) => {
+          item.style.transition = 'transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1)';
+          item.style.transform = 'none';
+
+          const onTransitionEnd = () => {
+            item.style.animation = '';
+            item.style.transform = '';
+            item.style.transition = '';
+            item.removeEventListener('transitionend', onTransitionEnd);
+          };
+          item.addEventListener('transitionend', onTransitionEnd, { once: true });
+          setTimeout(onTransitionEnd, 350);
+        });
+      });
+    }
+  };
+
+  if (toggleDragBtn) {
+    toggleDragBtn.addEventListener('click', () => {
+      isDragEnabled = !isDragEnabled;
+      updateDragToggleUI();
+    });
+  }
+
   const columns = document.querySelectorAll('.inventory-column');
   let draggedItem = null;
   let wasDragging = false;
@@ -128,33 +205,18 @@
     });
   };
 
-  // Attach Drag Listeners to Items (Drag ONLY when dragging from .drag-handle)
+  // Attach Drag Listeners to Items
   const setupDragItem = (item) => {
-    // Default draggable to false so text selection and copying work anywhere inside the card
     item.setAttribute('draggable', 'false');
 
-    const handles = item.querySelectorAll('.drag-handle');
-    handles.forEach((handle) => {
-      handle.addEventListener('mousedown', () => {
-        item.setAttribute('draggable', 'true');
-      });
-      handle.addEventListener('touchstart', () => {
-        item.setAttribute('draggable', 'true');
-      }, { passive: true });
-    });
-
-    const resetDraggable = () => {
-      if (!draggedItem) {
-        item.setAttribute('draggable', 'false');
-      }
-    };
-
-    window.addEventListener('mouseup', resetDraggable);
-    window.addEventListener('touchend', resetDraggable);
-
     item.addEventListener('dragstart', (e) => {
-      // If drag was not initiated by the handle, abort immediately to allow native text selection
-      if (item.getAttribute('draggable') !== 'true') {
+      if (!isDragEnabled) {
+        e.preventDefault();
+        return;
+      }
+
+      // Do not initiate drag from interactive elements
+      if (e.target.closest('button, a, input, textarea, select, .desc-toggle-btn')) {
         e.preventDefault();
         return;
       }
@@ -174,10 +236,7 @@
     });
 
     item.addEventListener('dragend', () => {
-      item.setAttribute('draggable', 'false');
-      if (draggedItem) {
-        draggedItem.classList.remove('is-dragging');
-      }
+      item.classList.remove('is-dragging');
       if (placeholder.parentNode) {
         placeholder.parentNode.removeChild(placeholder);
       }
@@ -191,14 +250,14 @@
   };
 
   document.querySelectorAll('.inventory-item').forEach(setupDragItem);
+  updateDragToggleUI();
 
   // Setup Column Drop Zones
   columns.forEach((col) => {
     col.addEventListener('dragover', (e) => {
+      if (!isDragEnabled || !draggedItem) return;
       e.preventDefault();
       e.dataTransfer.dropEffect = 'move';
-
-      if (!draggedItem) return;
 
       const afterElement = getDragAfterElement(col, e.clientY);
       if (afterElement == null) {
@@ -209,8 +268,8 @@
     });
 
     col.addEventListener('drop', (e) => {
+      if (!isDragEnabled || !draggedItem) return;
       e.preventDefault();
-      if (!draggedItem) return;
 
       if (placeholder.parentNode === col) {
         col.insertBefore(draggedItem, placeholder);
@@ -329,11 +388,6 @@
             sidebarCol.appendChild(cardToMove);
           }
         }
-
-        // Trigger visual promotion animation
-        targetCard.classList.remove('is-promoted');
-        void targetCard.offsetWidth; // force reflow
-        targetCard.classList.add('is-promoted');
 
         saveLayout();
 

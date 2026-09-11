@@ -193,6 +193,118 @@ body {
   transform: translateY(0);
 }
 
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+#toggle-drag-btn {
+  padding: 0.25rem 0.5rem;
+  height: 26px;
+  min-width: 28px;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+#toggle-drag-btn:hover {
+  color: var(--text);
+  border-color: var(--border-accent);
+}
+
+#toggle-drag-btn.is-active {
+  background-color: var(--rarity-set);
+  color: #ffffff;
+  border-color: var(--rarity-set);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.35);
+}
+
+#toggle-drag-btn.is-active:hover {
+  background-color: var(--rarity-set);
+  color: #ffffff;
+  border-color: var(--rarity-set);
+  filter: brightness(1.08);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+}
+
+#toggle-drag-btn .drag-toggle-icon {
+  display: block;
+}
+
+#reset-inventory-btn {
+  padding: 0.25rem 0.5rem;
+  height: 26px;
+  min-width: 28px;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+#reset-inventory-btn:hover {
+  color: var(--text);
+}
+
+#reset-inventory-btn .reset-icon {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#reset-inventory-btn:hover .reset-icon {
+  transform: rotate(-180deg);
+}
+
+/* Drag Enabled Visual Cues & Jiggle Mode */
+@keyframes cardJiggleLeft {
+  0% { transform: rotate(-0.7deg) translate3d(-0.5px, -0.5px, 0); }
+  50% { transform: rotate(0.6deg) translate3d(0.5px, 0.5px, 0); }
+  100% { transform: rotate(-0.5deg) translate3d(-0.5px, 0.5px, 0); }
+}
+
+@keyframes cardJiggleRight {
+  0% { transform: rotate(0.7deg) translate3d(0.5px, 0.5px, 0); }
+  50% { transform: rotate(-0.6deg) translate3d(-0.5px, -0.5px, 0); }
+  100% { transform: rotate(0.5deg) translate3d(0.5px, -0.5px, 0); }
+}
+
+.drag-enabled .inventory-item {
+  cursor: grab;
+  border-style: dashed;
+  border-color: var(--border-accent);
+  transform-origin: center center;
+  animation: cardJiggleLeft 0.28s ease-in-out infinite alternate !important;
+}
+
+.drag-enabled .inventory-item:nth-child(even) {
+  animation: cardJiggleRight 0.32s ease-in-out infinite alternate !important;
+  animation-delay: -0.09s !important;
+}
+
+.drag-enabled .inventory-item:nth-child(3n) {
+  animation: cardJiggleLeft 0.3s ease-in-out infinite alternate !important;
+  animation-delay: -0.16s !important;
+}
+
+.drag-enabled .inventory-item:hover {
+  border-color: var(--rarity-set);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.18);
+}
+
+.drag-enabled .inventory-item:active {
+  cursor: grabbing;
+}
+
+.drag-enabled .inventory-item.is-dragging {
+  animation: none !important;
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+.drag-enabled .inventory-item button,
+.drag-enabled .inventory-item a,
+.drag-enabled .inventory-item input {
+  cursor: pointer;
+}
+
 .tool-btn.icon-btn {
   padding: 0.35rem 0.55rem;
   font-size: 1rem;
@@ -524,8 +636,9 @@ body {
   color: var(--text-subtle);
 }
 
-/* Drag Handle Button in Corner */
+/* Drag Handle Button in Corner (Temporarily Disabled) */
 .drag-handle {
+  display: none !important;
   cursor: grab;
   padding: 0 0.45rem;
   height: 24px;
@@ -538,7 +651,6 @@ body {
   letter-spacing: -1px;
   font-weight: 700;
   user-select: none;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
@@ -584,21 +696,7 @@ body {
   pointer-events: none;
 }
 
-/* Promotion Glow Animation when clicking a Section Chip */
-@keyframes promoteGlow {
-  0% {
-    box-shadow: 0 0 0 2px var(--border-accent), 0 8px 20px rgba(0, 0, 0, 0.12);
-    transform: translateY(-4px);
-  }
-  100% {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
-    transform: translateY(0);
-  }
-}
 
-.inventory-item.is-promoted {
-  animation: promoteGlow 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
 
 /* ==========================================================================
    Header Card Typography & Links
